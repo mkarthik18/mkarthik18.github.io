@@ -1,119 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanitech | Engineering Excellence</title>
-    <style>
-        /* CSS Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0d1117; /* GitHub Dark Mode Color */
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thanitech</title>
+<meta name="description" content="Thanitech — products built one at a time." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-soft: #57564f;
+    --ink-faint: #9a9890;
+    --paper: #ffffff;
+    --line: #e8e6e0;
+    --accent: #b5651d;
+    --accent-soft: #f5ece1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-        .container {
-            max-width: 800px;
-            padding: 20px;
-        }
+  /* Header */
+  header {
+    padding: 48px 0 0;
+  }
+  .wordmark {
+    font-family: 'Source Serif 4', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .wordmark span { color: var(--accent); }
 
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-            background: -webkit-linear-gradient(45deg, #007cf0, #00dfd8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  /* Hero */
+  .hero {
+    padding: 88px 0 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 1.28;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 520px;
+  }
+  .hero p {
+    margin-top: 22px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 460px;
+  }
+  .hero .by {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.02em;
+  }
 
-        p.subtitle {
-            font-size: 1.5rem;
-            color: #8b949e;
-            margin-top: 0;
-        }
+  /* Apps section */
+  .apps {
+    padding: 56px 0 24px;
+  }
+  .apps-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
 
-        .status-badge {
-            background-color: #238636;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .loader {
-            border: 4px solid #30363d;
-            border-top: 4px solid #00dfd8;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 40px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #484f58;
-        }
-        .action-btn {
-    background: linear-gradient(45deg, #007cf0, #00dfd8);
-    border: none;
-    padding: 15px 30px;
-    color: #0d1117;
-    font-weight: bold;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
+  .app-row {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
     text-decoration: none;
-    margin-top: 30px;
+    color: inherit;
+    transition: opacity 0.15s ease;
+  }
+  .app-row:hover { opacity: 0.72; }
+  .app-row:last-child { border-bottom: 1px solid var(--line); }
+
+  .app-index {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--accent);
+    min-width: 28px;
+    padding-top: 3px;
+  }
+  .app-body { flex: 1; }
+  .app-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .app-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 420px;
+  }
+  .app-tag {
     display: inline-block;
-    transition: transform 0.2s;
-}
-.action-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 223, 216, 0.4);
-}
-    </style>
+    margin-top: 12px;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .app-arrow {
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    color: var(--ink-faint);
+    padding-top: 4px;
+  }
+
+  /* Coming row */
+  .app-row.pending {
+    cursor: default;
+  }
+  .app-row.pending:hover { opacity: 1; }
+  .app-row.pending .app-title { color: var(--ink-faint); }
+  .app-row.pending .app-index { color: var(--ink-faint); }
+
+  /* Footer */
+  footer {
+    padding: 64px 0 56px;
+    border-top: 1px solid var(--line);
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  footer p {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 30px; }
+    .hero { padding: 64px 0 48px; }
+    header { padding-top: 36px; }
+    footer { flex-direction: column; gap: 8px; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="status-badge">System Online (v1.1)</div>
-        
-        <h1>Thanitech</h1>
-        <p class="subtitle">Engineering the Future.</p>
-        
-        <div class="loader"></div>
-        
-        <p style="color: #c9d1d9; margin-top: 20px;">
-            Our digital laboratory is currently under construction.<br>
-            Full deployment expected in 2026.
-        </p>
+<div class="wrap">
+  <header>
+    <div class="wordmark">thani<span>tech</span></div>
+  </header>
 
-        <a href="farm.html" class="action-btn">Launch Farm Management 🐄</a>
+  <section class="hero">
+    <h1>Products built one at a time, starting with the ones I needed myself.</h1>
+    <p>Thanitech is a small, growing collection of tools — each one built to solve a real problem first, then shared in case it helps someone else too.</p>
+  </section>
+
+  <section class="apps">
+    <div class="apps-label">The collection</div>
+
+    <a href="https://trainer.thanitech.com" class="app-row">
+      <div class="app-index">01</div>
+      <div class="app-body">
+        <div class="app-title">Communication Trainer</div>
+        <div class="app-desc">Daily practice for storytelling, delivery, and professional English — with honest AI coaching after every session.</div>
+        <div class="app-tag">Live</div>
+      </div>
+      <div class="app-arrow">&#8594;</div>
+    </a>
+
+    <div class="app-row pending">
+      <div class="app-index">02</div>
+      <div class="app-body">
+        <div class="app-title">Coming next</div>
+        <div class="app-desc">Still being built.</div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        &copy; 2026 Thanitech. All rights reserved.
-    </footer>
+  <footer>
+    <p>Thanitech</p>
+    <p>Chennai</p>
+  </footer>
+</div>
 
 </body>
 </html>
